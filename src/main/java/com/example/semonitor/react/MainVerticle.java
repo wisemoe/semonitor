@@ -18,6 +18,9 @@ public class MainVerticle extends AbstractVerticle {
   public void start(Promise<Void> startPromise) throws Exception {
     WebServicePooler.recurring(vertx, 60000);
     Router router = Router.router(vertx);
+    router.get("/api/webServices/:id").handler(new ShowHandler());
+    router.get("/api/webServices").handler(new AllHandler());
+    router.post("/api/webServices").handler(BodyHandler.create()).handler(new AddHandler());
     router.route("/").handler(new Handler<RoutingContext>() {
       @Override
       public void handle(RoutingContext event) {
