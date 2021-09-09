@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    environment:
+     - MONGO_INITDB_DATABASE=service_monitor
+     - MONGO_INITDB_ROOT_USERNAME=
+     - MONGO_INITDB_ROOT_PASSWORD=
+    volumes:
+      - /tmp/docker/mongodb
+    ports:
+      - 27017:27017
+    restart: unless-stopped
