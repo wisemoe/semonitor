@@ -16,6 +16,7 @@ public class MainVerticle extends AbstractVerticle {
 
   @Override
   public void start(Promise<Void> startPromise) throws Exception {
+    WebServicePooler.recurring(vertx, 60000);
     Router router = Router.router(vertx);
     router.route("/").handler(new Handler<RoutingContext>() {
       @Override
