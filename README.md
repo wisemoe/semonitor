@@ -2,8 +2,10 @@
 this is a full stack application which helps you to monitor web services
 
 ##Running
-- make sure you have `docker` and `docker-compose` on your computer
-- go to `docker/` and run `docker-compose up`
+first make sure you have nodejs and yarn installed, then:
+1. run mongodb on local machine (you can use docker-compose in docker folder)
+2. run `gradlew run`
+3. go to `src/main/frontend` and run `yarn build && yarn start`
 ##Building
 
 To launch your tests:
