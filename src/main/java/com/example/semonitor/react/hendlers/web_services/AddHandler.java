@@ -16,6 +16,7 @@ public class AddHandler extends BaseServicesHandler {
 
   @Override
   public void handle(RoutingContext event) {
+    event.response().headers().add("content-type", "application/json");
     mongoClient = MongoClient.createShared(Vertx.vertx(), Config.dbConfig());
     JsonObject requestParams = event.getBodyAsJson();
     String name = requestParams.getString("name");

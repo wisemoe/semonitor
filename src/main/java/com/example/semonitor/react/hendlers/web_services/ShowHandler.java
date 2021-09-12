@@ -10,6 +10,7 @@ import io.vertx.ext.web.RoutingContext;
 public class ShowHandler extends BaseServicesHandler {
   @Override
   public void handle(RoutingContext event) {
+    event.response().headers().add("content-type", "application/json");
     mongoClient = MongoClient.createShared(Vertx.vertx(), Config.dbConfig());
     JsonObject query = new JsonObject().put("_id", event.request().getParam("id"));
     JsonObject options = new JsonObject();
